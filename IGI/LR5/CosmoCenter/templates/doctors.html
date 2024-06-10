@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{%block title%}Наши врачи{% endblock %}
+
+{% block content %}
+
+<div class="doctors-container">
+    {% for doctor in doctors %}
+        <div class="doctor-card">
+            {% if doctor.photo %}
+                <img src="{{ doctor.photo.url }}" alt="{{ doctor.name }}">
+            {% endif %}
+            <h3>{{ doctor.surname }} {{ doctor.name }} {{ doctor.patronymic }}</h3>
+            <p>{{ doctor.specialization }}</p>
+            <p>{{ doctor.experience }} лет опыта</p>
+            <p>{{ doctor.description }}</p>
+            <a href="#">Подробнее</a>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
